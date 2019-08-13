@@ -1,5 +1,6 @@
-let cvs = document.getElementById("canvas");
+var cvs = document.querySelector("#canvas");
 var ctx = cvs.getContext("2d");
+
 
 // load images
 
@@ -17,7 +18,7 @@ pipeSouth.src = "images/pipeSouth.png";
 
 // some variables
 
-var gap = 85;
+var gap = 90;
 var constant = pipeNorth.height + gap;
 var bX = 10;
 var bY = 150;
@@ -34,10 +35,10 @@ point.src = "sounds/score.mp3";
 
 // on key down press
 
-document.addEventListener("keydown" || "click", moveUp);
+document.addEventListener("keydown", moveUp);
 
 function moveUp() {
-    bY -= 25;
+    bY -= 30;
     fly.play();
 }
 
@@ -58,7 +59,7 @@ function draw() {
         ctx.drawImage(pipeSouth, pipe[i].x, pipe[i].y + constant);
         pipe[i].x--;
 
-        if (pipe[i].x == 125) {
+        if (pipe[i].x == 25) {
             pipe.push({
                 x: cvs.width,
                 y: Math.floor(Math.random() * pipeNorth.height) - pipeNorth.height
